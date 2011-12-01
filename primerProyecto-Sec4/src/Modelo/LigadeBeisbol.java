@@ -1,24 +1,25 @@
 package Modelo;
 import java.io.*;
+import java.util.ArrayList;
+
+import java.util.*;
 public class LigadeBeisbol {
 		public String nombre;
 		public String Descripcion;
-		int equipos[]= new int[4];
-		int partido[]= new int[4];
-		int umpire[] = new int[4];
+		private ArrayList<Equipo> equipos;
+		private ArrayList<Partido> partidos;
+		private ArrayList<Umpire> arbitros;
+
+		
 		public LigadeBeisbol() {
 			super();
 			// TODO Auto-generated constructor stub
+			arbitros = new  ArrayList<Umpire>();
+			partidos = new ArrayList<Partido>();
+			equipos = new ArrayList<Equipo>();
+			
 		}
-		public LigadeBeisbol(String nombre, String descripcion, int[] equipos,
-				int[] partido, int[] umpire) {
-			super();
-			this.nombre = nombre;
-			Descripcion = descripcion;
-			this.equipos = equipos;
-			this.partido = partido;
-			this.umpire = umpire;
-		}
+		
 		
 		public void generarCalendario(){
 			// FUNCION QUE GENERA EL CALENDARIO DEL TORNEO
@@ -29,5 +30,13 @@ public class LigadeBeisbol {
 		}
 
 
+		public void registrarUmpire(Umpire umpire){
+			this.arbitros.add(umpire);
+		}
+		
+		public void registrarEquipo(Equipo equipo){
+			this.equipos.add(equipo);
+		}
+		
 
 }

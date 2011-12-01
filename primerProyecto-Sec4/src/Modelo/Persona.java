@@ -4,13 +4,18 @@ public class Persona {
 	protected  String cedula;
 	protected String nombre;
 	protected String Apellido;
-	protected Date fechaNac;
-	public Persona(String cedula, String nombre, String apellido, Date fechaNac) {
+	protected String fechaNac;
+	public Persona(String cedula, String nombre, String apellido,
+			String fechaNac) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
 		Apellido = apellido;
 		this.fechaNac = fechaNac;
+	}
+	public Persona() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public String getCedula() {
 		return cedula;
@@ -30,14 +35,13 @@ public class Persona {
 	public void setApellido(String apellido) {
 		Apellido = apellido;
 	}
-	public Date getFechaNac() {
+	public String getFechaNac() {
 		return fechaNac;
 	}
-	public void setFechaNac(Date fechaNac) {
+	public void setFechaNac(String fechaNac) {
 		this.fechaNac = fechaNac;
 	}
-	
-	
+		
 	
 	
 	

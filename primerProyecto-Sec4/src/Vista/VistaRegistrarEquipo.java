@@ -1,15 +1,22 @@
 package Vista;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
 
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
+
+
 
 
 /**
@@ -30,8 +37,10 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 	private JLabel jLabel3;
 	private JLabel jLabel4;
 	private JLabel jLabel5;
+	private JFileChooser cargarListaJug;
+	private JButton btnCargarJugadores;
+	private JTextField txtCiudad;
 	private JTextField txtEstadio;
-	private JComboBox Combo;
 	private JTextField txtFundacion;
 	private JTextField txtNombreEquipo;
 	private JTextField txtCodigo;
@@ -40,23 +49,55 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 	private JButton btnRegistrarEquipo;
 	private JLabel jLabel6;
 
-	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				VistaRegistrarEquipo inst = new VistaRegistrarEquipo();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
+	
 	
 	public VistaRegistrarEquipo() {
 		super();
 		initGUI();
 	}
+	
+	  public JTextField gettxtCodigo() {
+	        return txtCodigo;
+	    }
+	  public JTextField gettxtNombreEquipo() {
+	        return txtNombreEquipo;
+	    }
+	  public JTextField gettxtFundacion() {
+	        return txtFundacion;
+	    }
+	  public JTextField gettxtCiudad() {
+	        return txtCiudad;
+	    }
+	  public JTextField gettxtEstadio(){
+		  return txtEstadio;
+		  
+	  }
+	  
+	
+		public void mostrarMensaje(String mensaje){
+		JOptionPane.showMessageDialog(this, mensaje);
+	}
+	
+	
+	public void agregarListener(ActionListener accion){
+	 btnRegistrarEquipo.addActionListener(accion);  
+	 btnCancelarEquipo.addActionListener(accion);
+	 btnCargarJugadores.addActionListener(accion);  
+	 btnSalirEquipo.addActionListener(accion);
+	   btnRegistrarEquipo.setActionCommand("Registrar");
+	  btnCargarJugadores.setActionCommand("Cargar Jugadores");
+	   btnCancelarEquipo.setActionCommand("Cancelar");
+	   btnSalirEquipo.setActionCommand("Salir");
+	}
+	
+	public void limpiarCampos(){
+		txtCodigo.setText("");
+		txtNombreEquipo.setText("");
+		txtFundacion.setText("");
+		txtCiudad.setText("");
+		txtEstadio.setText("");
+	}
+	
 	
 	private void initGUI() {
 		try {
@@ -67,7 +108,7 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 				jLabel1 = new JLabel();
 				getContentPane().add(jLabel1);
 				jLabel1.setText("Informacion Equipo");
-				jLabel1.setBounds(105, 12, 144, 19);
+				jLabel1.setBounds(89, 12, 180, 19);
 				jLabel1.setFont(new java.awt.Font("Segoe UI",0,16));
 			}
 			{
@@ -91,8 +132,8 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 			{
 				jLabel5 = new JLabel();
 				getContentPane().add(jLabel5);
-				jLabel5.setText("Año de Fundacion:");
-				jLabel5.setBounds(45, 163, 107, 16);
+				jLabel5.setText("Ano de Fundacion:");
+				jLabel5.setBounds(7, 162, 120, 16);
 			}
 			{
 				jLabel6 = new JLabel();
@@ -104,19 +145,19 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 				btnRegistrarEquipo = new JButton();
 				getContentPane().add(btnRegistrarEquipo);
 				btnRegistrarEquipo.setText("Registrar");
-				btnRegistrarEquipo.setBounds(57, 329, 80, 28);
+				btnRegistrarEquipo.setBounds(24, 329, 80, 28);
 			}
 			{
 				btnCancelarEquipo = new JButton();
 				getContentPane().add(btnCancelarEquipo);
 				btnCancelarEquipo.setText("Cancelar");
-				btnCancelarEquipo.setBounds(140, 329, 80, 28);
+				btnCancelarEquipo.setBounds(249, 329, 80, 28);
 			}
 			{
 				btnSalirEquipo = new JButton();
 				getContentPane().add(btnSalirEquipo);
 				btnSalirEquipo.setText("Salir");
-				btnSalirEquipo.setBounds(223, 329, 80, 28);
+				btnSalirEquipo.setBounds(351, 329, 80, 28);
 			}
 			{
 				txtCodigo = new JTextField();
@@ -134,21 +175,35 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 				txtFundacion.setBounds(152, 161, 130, 20);
 			}
 			{
-				ComboBoxModel ComboModel = 
-					new DefaultComboBoxModel(
-							new String[] { "Item One", "Item Two" });
-				Combo = new JComboBox();
-				getContentPane().add(Combo);
-				Combo.setModel(ComboModel);
-				Combo.setBounds(152, 207, 130, 20);
-			}
-			{
 				txtEstadio = new JTextField();
 				getContentPane().add(txtEstadio);
 				txtEstadio.setBounds(152, 256, 130, 20);
 			}
+			{
+				txtCiudad = new JTextField();
+				getContentPane().add(txtCiudad);
+				txtCiudad.setBounds(152, 205, 125, 22);
+			}
+			{
+				btnCargarJugadores = new JButton();
+				getContentPane().add(btnCargarJugadores);
+				btnCargarJugadores.setText("Cargar Jugadores");
+				btnCargarJugadores.setBounds(115, 329, 123, 28);
+				btnCargarJugadores.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						System.out.println("btnCargarJugadores.actionPerformed, event="+evt);
+						
+					}
+				});
+			}
+			{
+				cargarListaJug = new JFileChooser();
+				getContentPane().add(cargarListaJug);
+				
+				cargarListaJug.setBounds(-49, 13, 547, 326);
+			}
 			pack();
-			this.setSize(375, 420);
+			this.setSize(459, 422);
 		} catch (Exception e) {
 		    //add your error handling code here
 			e.printStackTrace();

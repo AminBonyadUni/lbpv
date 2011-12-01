@@ -1,11 +1,17 @@
 package Vista;
+import Modelo.Umpire;
+import java.awt.event.ActionListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
+
+import Modelo.Umpire;
 
 
 /**
@@ -27,32 +33,56 @@ public class VistaRegistrarUmpire extends javax.swing.JFrame {
 	private JLabel jLabel3;
 	private JLabel jLabel4;
 	private JLabel jLabel5;
+	private JButton btnBuscar;
+	private JTextField txtFecha;
 	private JButton btnCancelar;
 	private JTextField txtNombre;
-	private JTextField txtJuegos;
-	private JTextField jTextField1;
 	private JTextField txtCedula;
 	private JTextField txtApellido;
-	private JLabel jLabel6;
 	private JLabel jLabel1;
 
-	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				VistaRegistrarUmpire inst = new VistaRegistrarUmpire();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
+
 	
 	public VistaRegistrarUmpire() {
 		super();
 		initGUI();
 	}
+	  public JTextField gettxtCedula() {
+	        return txtCedula;
+	    }
+	  public JTextField gettxtNombre() {
+	        return txtNombre;
+	    }
+	  public JTextField gettxtApellido() {
+	        return txtApellido;
+	    }
+	  public JTextField gettxtFecha() {
+	        return txtFecha;
+	    }
+	  
+	
+		public void mostrarMensaje(String mensaje){
+		JOptionPane.showMessageDialog(this, mensaje);
+	}
+	
+	
+	public void agregarListener(ActionListener accion){
+	 btnRegistrarUmpire.addActionListener(accion);  
+	 btnCancelar.addActionListener(accion);
+	   btnSalir.addActionListener(accion);
+	   btnRegistrarUmpire.setActionCommand("Registrar");
+	   btnCancelar.setActionCommand("Cancelar");
+	   btnSalir.setActionCommand("Salir");
+	}
+	
+	public void limpiarCampos(){
+		txtCedula.setText("");
+		txtNombre.setText("");
+		txtApellido.setText("");
+		txtFecha.setText("");
+		
+	}
+	
 	
 	private void initGUI() {
 		try {
@@ -63,14 +93,13 @@ public class VistaRegistrarUmpire extends javax.swing.JFrame {
 				btnRegistrarUmpire = new JButton();
 				getContentPane().add(btnRegistrarUmpire);
 				btnRegistrarUmpire.setText("Registrar");
-				btnRegistrarUmpire.setBounds(59, 324, 80, 28);
+				btnRegistrarUmpire.setBounds(36, 324, 80, 28);
 			}
 			{
 				btnSalir = new JButton();
 				getContentPane().add(btnSalir);
 				btnSalir.setText("Salir");
-				btnSalir.setBounds(241, 324, 80, 25);
-				btnSalir.setSize(80, 28);
+				btnSalir.setBounds(255, 324, 80, 28);
 			}
 			{
 				jLabel1 = new JLabel();
@@ -83,72 +112,65 @@ public class VistaRegistrarUmpire extends javax.swing.JFrame {
 				jLabel2 = new JLabel();
 				getContentPane().add(jLabel2);
 				jLabel2.setText("Nombre:");
-				jLabel2.setBounds(47, 60, 97, 16);
+				jLabel2.setBounds(42, 113, 97, 16);
 			}
 			{
 				jLabel3 = new JLabel();
 				getContentPane().add(jLabel3);
 				jLabel3.setText("Apellido:");
-				jLabel3.setBounds(47, 109, 97, 16);
+				jLabel3.setBounds(42, 159, 97, 16);
 			}
 			{
 				jLabel4 = new JLabel();
 				getContentPane().add(jLabel4);
 				jLabel4.setText("Cedula:");
-				jLabel4.setBounds(48, 159, 97, 16);
+				jLabel4.setBounds(48, 64, 97, 16);
 			}
 			{
 				jLabel5 = new JLabel();
 				getContentPane().add(jLabel5);
 				jLabel5.setText("Fecha de Nacimiento:");
-				jLabel5.setBounds(49, 209, 127, 16);
-			}
-			{
-				jLabel6 = new JLabel();
-				BoxLayout jLabel6Layout = new BoxLayout(jLabel6, javax.swing.BoxLayout.X_AXIS);
-				jLabel6.setLayout(jLabel6Layout);
-				getContentPane().add(jLabel6);
-				jLabel6.setText("Juegos Arbitrados:");
-				jLabel6.setBounds(50, 259, 97, 16);
+				jLabel5.setBounds(12, 209, 147, 16);
 			}
 			{
 				txtNombre = new JTextField();
 				getContentPane().add(txtNombre);
-				txtNombre.setBounds(162, 58, 130, 20);
+				txtNombre.setBounds(165, 111, 130, 20);
 			}
 			{
 				txtApellido = new JTextField();
 				getContentPane().add(txtApellido);
-				txtApellido.setBounds(162, 107, 130, 20);
+				txtApellido.setBounds(165, 157, 130, 20);
 			}
 			{
 				txtCedula = new JTextField();
 				getContentPane().add(txtCedula);
-				txtCedula.setBounds(163, 157, 130, 20);
-			}
-			{
-				jTextField1 = new JTextField();
-				getContentPane().add(jTextField1);
-				jTextField1.setText("fechanacimiento");
-				jTextField1.setBounds(175, 207, 95, 20);
-			}
-			{
-				txtJuegos = new JTextField();
-				getContentPane().add(txtJuegos);
-				txtJuegos.setBounds(165, 257, 130, 20);
+				txtCedula.setBounds(165, 62, 130, 20);
 			}
 			{
 				btnCancelar = new JButton();
 				getContentPane().add(btnCancelar);
 				btnCancelar.setText("Cancelar");
-				btnCancelar.setBounds(150, 324, 80, 28);
+				btnCancelar.setBounds(151, 324, 80, 28);
+			}
+			{
+				txtFecha = new JTextField();
+				getContentPane().add(txtFecha);
+				txtFecha.setBounds(171, 207, 128, 23);
+			}
+			{
+				btnBuscar = new JButton();
+				getContentPane().add(btnBuscar);
+				btnBuscar.setText("Buscar");
+				btnBuscar.setBounds(343, 57, 88, 23);
 			}
 			pack();
-			this.setSize(375, 420);
+			this.setSize(465, 462);
 		} catch (Exception e) {
 		    //add your error handling code here
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 }
