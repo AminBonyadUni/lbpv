@@ -47,8 +47,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
 	public void agregarListener(ActionListener accion){
 		jMenuItem1.addActionListener(accion);
 		jMenuItem2.addActionListener(accion);
+		jMenuItem5.addActionListener(accion);
 		jMenuItem1.setActionCommand("Registrar Umpire");
 		jMenuItem2.setActionCommand("Registrar Equipos");
+		jMenuItem5.setActionCommand("Salir");
 	}
 	
 	
@@ -128,6 +130,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
 						jMenuItem5 = new JMenuItem();
 						jMenu5.add(jMenuItem5);
 						jMenuItem5.setText("Salir");
+						jMenuItem5.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								System.out.println("jMenuItem5.actionPerformed, event="+evt);
+								//TODO add your code for jMenuItem5.actionPerformed
+							}
+						});
 					}
 				}
 			}
