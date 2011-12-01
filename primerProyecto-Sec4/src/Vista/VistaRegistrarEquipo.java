@@ -37,7 +37,6 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 	private JLabel jLabel3;
 	private JLabel jLabel4;
 	private JLabel jLabel5;
-	private JFileChooser cargarListaJug;
 	private JButton btnCargarJugadores;
 	private JTextField txtCiudad;
 	private JTextField txtEstadio;
@@ -195,12 +194,6 @@ public class VistaRegistrarEquipo extends javax.swing.JFrame {
 						
 					}
 				});
-			}
-			{
-				cargarListaJug = new JFileChooser();
-				getContentPane().add(cargarListaJug);
-				
-				cargarListaJug.setBounds(-49, 13, 547, 326);
 			}
 			pack();
 			this.setSize(459, 422);

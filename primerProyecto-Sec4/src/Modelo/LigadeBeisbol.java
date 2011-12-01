@@ -38,5 +38,7 @@ public class LigadeBeisbol {
 			this.equipos.add(equipo);
 		}
 		
-
+		public void GenerarPartido(){
+			
+		}
 }

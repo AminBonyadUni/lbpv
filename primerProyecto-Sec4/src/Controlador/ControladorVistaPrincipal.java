@@ -17,7 +17,7 @@ public class ControladorVistaPrincipal implements ActionListener {
 	public ControladorVistaPrincipal() {
 		super();
 		
-		LigadeBeisbol liga = new LigadeBeisbol();
+		liga = new LigadeBeisbol();
 		principal= new VistaPrincipal();
 		principal.setLocationRelativeTo(null);
 		principal.setVisible(true);	
