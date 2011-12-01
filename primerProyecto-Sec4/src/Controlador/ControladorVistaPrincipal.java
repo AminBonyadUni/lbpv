@@ -34,6 +34,9 @@ public class ControladorVistaPrincipal implements ActionListener {
 			new ControladorEquipo(liga);
 				 
 			 }
+		else if(e.getActionCommand().equals("Salir")){
+			principal.setVisible(false);
+		}
 		}
 			
 		

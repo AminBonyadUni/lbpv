@@ -27,6 +27,7 @@ public class ControladorEquipo implements ActionListener{
 			vistaequipo.setLocationRelativeTo(null);
 			vistaequipo.setVisible(true);
 			vistaequipo.agregarListener(this);
+			
 			this.liga= liga;
 			// TODO Auto-generated constructor stub
 		}
@@ -43,6 +44,7 @@ public class ControladorEquipo implements ActionListener{
 	 else if(actionCommand.equals("Cargar Jugadores")){
 		try {
 			cargarjugadores();
+			
 		} catch (NumberFormatException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -66,7 +68,7 @@ public class ControladorEquipo implements ActionListener{
 	javax.swing.JFileChooser j= new javax.swing.JFileChooser();
 	j.showOpenDialog(j); 
 	String ruta=j.getSelectedFile().getAbsolutePath();
-	 String lectura="";
+	 
 	  f= new File(ruta);
 	  	FileReader fr = new FileReader(f);
 		BufferedReader bf = new BufferedReader(fr);
