@@ -1,6 +1,7 @@
 package Modelo;
 import java.io.*;
 import java.math.*;
+import java.util.Vector;
 	
 
 public class Equipo {
@@ -13,14 +14,16 @@ public class Equipo {
 		private int JuegosJ;
 		private int JuegosG;
 		private int JuegosP;
-		Jugador Jugador;
+		private Vector<Jugador> jugadores = new Vector<Jugador>();
+		Equipo equipo;
+		
 		public Equipo() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 		public Equipo(String codEquipo, String nombre, String fundacion,
 				String nombreEstadio, String ciudad, int juegosJ, int juegosG,
-				int juegosP, Modelo.Jugador jugador) {
+				int juegosP) {
 			super();
 			CodEquipo = codEquipo;
 			Nombre = nombre;
@@ -30,7 +33,60 @@ public class Equipo {
 			JuegosJ = juegosJ;
 			JuegosG = juegosG;
 			JuegosP = juegosP;
-			Jugador = jugador;
+		}
+		public void setJugadores(Vector<Jugador> jugadores) {
+			this.jugadores = jugadores;
+		}
+		public Vector<Jugador> getJugadores() {
+			return jugadores;
+		}
+		public String getCodEquipo() {
+			return CodEquipo;
+		}
+		public void setCodEquipo(String codEquipo) {
+			CodEquipo = codEquipo;
+		}
+		public String getNombre() {
+			return Nombre;
+		}
+		public void setNombre(String nombre) {
+			Nombre = nombre;
+		}
+		public String getFundacion() {
+			return fundacion;
+		}
+		public void setFundacion(String fundacion) {
+			this.fundacion = fundacion;
+		}
+		public String getNombreEstadio() {
+			return NombreEstadio;
+		}
+		public void setNombreEstadio(String nombreEstadio) {
+			NombreEstadio = nombreEstadio;
+		}
+		public String getCiudad() {
+			return Ciudad;
+		}
+		public void setCiudad(String ciudad) {
+			Ciudad = ciudad;
+		}
+		public int getJuegosJ() {
+			return JuegosJ;
+		}
+		public void setJuegosJ(int juegosJ) {
+			JuegosJ = juegosJ;
+		}
+		public int getJuegosG() {
+			return JuegosG;
+		}
+		public void setJuegosG(int juegosG) {
+			JuegosG = juegosG;
+		}
+		public int getJuegosP() {
+			return JuegosP;
+		}
+		public void setJuegosP(int juegosP) {
+			JuegosP = juegosP;
 		}
 
 

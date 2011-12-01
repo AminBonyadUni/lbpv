@@ -19,7 +19,7 @@ public class ControladorEquipo implements ActionListener{
 		private VistaRegistrarEquipo vistaequipo;
 		Equipo equipo;
 		private LigadeBeisbol liga;
-		
+		Vector<Jugador> vectorJugador = new Vector<Jugador>();
 		
 	public ControladorEquipo(LigadeBeisbol liga) {
 			super();
@@ -29,6 +29,7 @@ public class ControladorEquipo implements ActionListener{
 			vistaequipo.agregarListener(this);
 			
 			this.liga= liga;
+			
 			// TODO Auto-generated constructor stub
 		}
 
@@ -67,11 +68,14 @@ public class ControladorEquipo implements ActionListener{
 		File f;
 	javax.swing.JFileChooser j= new javax.swing.JFileChooser();
 	j.showOpenDialog(j); 
+	
 	String ruta=j.getSelectedFile().getAbsolutePath();
-	 
+	//String lectura = "";
 	  f= new File(ruta);
-	  	FileReader fr = new FileReader(f);
+	  
+	  FileReader fr = new FileReader(f);
 		BufferedReader bf = new BufferedReader(fr);
+		
 		String aux = "";
 			String cedula;
 	     	String nombre;
@@ -82,29 +86,31 @@ public class ControladorEquipo implements ActionListener{
 	     	int homeruns;
 	     	Jugador jugador;
 	     
-	     	Vector<Jugador> vectorJugador = new Vector<Jugador>();
+	     	
 	     
 	     	while ((aux = bf.readLine())!=null )
+	     		
 	     	{
+	  //   		lectura=lectura+aux+"\n";}
+	     		
 	     		cedula = bf.readLine();
 	     		nombre = bf.readLine();
 	        	apellido = bf.readLine();
 	        	fechaNac= bf.readLine();
-	        	CarreraImp= Integer.parseInt(bf.readLine());
-	        	homeruns= Integer.parseInt(bf.readLine());
 	        	posicion= bf.readLine();
 	        	
 	        
-	       jugador = new Jugador(cedula, nombre, apellido, fechaNac, CarreraImp,homeruns, posicion);
+	       jugador = new Jugador(cedula, nombre, apellido, fechaNac, 0,0, posicion);
 	        
 	       vectorJugador.addElement(jugador);
 	     	}
 	     	bf.close();
- 
+	     	vistaequipo.mostrarMensaje("se han cargado los jugadores al equipo.");
 	}
 	private void registrar(){
 		try
 		{
+			
 			if(vistaequipo.gettxtCodigo().getText().equals("")|| 
 					vistaequipo.gettxtNombreEquipo().getText().equals("") || 
 					vistaequipo.gettxtFundacion().getText().equals("")|| 
@@ -121,8 +127,11 @@ public class ControladorEquipo implements ActionListener{
 	    		String ciudad= vistaequipo.gettxtCiudad().getText();
 	    		
 	    		
-	    		Equipo equipo = new Equipo(codigo, nombre, fundacion,Estadio,ciudad,0,0,0,null); 
-	    	
+	    		Equipo equipo = new Equipo(codigo, nombre, fundacion,Estadio,ciudad,0,0,0); 
+	    
+	    		//agregando los jugadores al equipo
+	    		equipo.setJugadores(vectorJugador);
+	    		
 	    		liga.registrarEquipo(equipo);
 	    		
 		        
@@ -146,6 +155,6 @@ public class ControladorEquipo implements ActionListener{
 
 	
 
-//en el constructor se instancia la ventana
+
 
 
