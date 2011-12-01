@@ -6,13 +6,12 @@ public class Jugador extends Persona  {
 	protected int Homeruns;
 	protected String Posicion;
 	Equipo equipo;
-	public Jugador(String cedula, String nombre, String apellido, Date fechaNac) {
+	public Jugador(String cedula, String nombre, String apellido, String fechaNac) {
 		super(cedula, nombre, apellido, fechaNac);
 		// TODO Auto-generated constructor stub
 	}
 	public Jugador(String cedula, String nombre, String apellido,
-			Date fechaNac, int carrImpulsada, int homeruns, String posicion,
-			Equipo equipo) {
+			String fechaNac, int carrImpulsada, int homeruns, String posicion) {
 		super(cedula, nombre, apellido, fechaNac);
 		CarrImpulsada = carrImpulsada;
 		Homeruns = homeruns;

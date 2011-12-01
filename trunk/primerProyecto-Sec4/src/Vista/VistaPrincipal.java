@@ -1,4 +1,6 @@
 package Vista;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -22,6 +24,7 @@ import javax.swing.SwingUtilities;
 public class VistaPrincipal extends javax.swing.JFrame {
 	private JMenuBar jMenuBar1;
 	private JMenu jMenu5;
+	private JMenuItem GenerarPartido;
 	private JMenuItem jMenuItem7;
 	private JMenuItem jMenuItem6;
 	private JMenuItem jMenuItem5;
@@ -34,22 +37,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
 	private JMenu jMenu2;
 	private JMenu jMenu1;
 
-	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				VistaPrincipal inst = new VistaPrincipal();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
 	
 	public VistaPrincipal() {
 		super();
 		initGUI();
+	}
+	
+	
+	public void agregarListener(ActionListener accion){
+		jMenuItem1.addActionListener(accion);
+		jMenuItem2.addActionListener(accion);
+		jMenuItem1.setActionCommand("Registrar Umpire");
+		jMenuItem2.setActionCommand("Registrar Equipos");
 	}
 	
 	
@@ -73,6 +72,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
 						jMenuItem2 = new JMenuItem();
 						jMenu1.add(jMenuItem2);
 						jMenuItem2.setText("Registrar Equipos");
+					}
+					{
+						GenerarPartido = new JMenuItem();
+						jMenu1.add(GenerarPartido);
+						GenerarPartido.setText("Generar Partidos");
+						GenerarPartido.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								System.out.println("GenerarPartido.actionPerformed, event="+evt);
+								//TODO add your code for GenerarPartido.actionPerformed
+							}
+						});
 					}
 				}
 				{
